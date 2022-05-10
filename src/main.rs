@@ -5,25 +5,25 @@ fn main() {
     // Once you've set up the Shop and Card structs, you should be able to
     // uncomment this code
     //
-    // let comic_book_shoppe = Shop {
-    //     cards: [
-    //         Card {
-    //             price: 10,
-    //             health: 10,
-    //             damage: 10,
-    //         },
-    //         Card {
-    //             price: 20,
-    //             health: 20,
-    //             damage: 20,
-    //         },
-    //         Card {
-    //             price: 30,
-    //             health: 30,
-    //             damage: 30,
-    //         },
-    //     ],
-    // };
+    let comic_book_shoppe = Shop {
+         cards: [
+             Card {
+                 price: 10,
+                 health: 10,
+                 damage: 10,
+             },
+             Card {
+                 price: 20,
+                 health: 20,
+                 damage: 20,
+             },
+             Card {
+                 price: 30,
+                 health: 30,
+                 damage: 30,
+             },
+         ],
+     };
 
     println!("Welcome to The Comic Book Shoppe!");
     println!("We've got three cards for you to check out.");
@@ -69,28 +69,33 @@ fn main() {
 /// A Shop is a collection of 3 cards.
 struct Shop {
     // TOOD: Add the field to this struct
+    cards: [Card; 3]
 }
+
+use std::cmp;
 
 impl Shop {
     /// Get the price of the most expensive card in the shop
     fn most_expensive(&self) -> u32 {
-        todo!()
+       cmp::max(self.cards[0].price, cmp::max(self.cards[1].price, self.cards[2].price))
     }
 
     /// Get the total damage of all cards in the shop
     fn total_damage(&self) -> u32 {
-        todo!()
+        self.cards[0].damage + self.cards[1].damage + self.cards[2].damage
     }
 
     /// Get the total health of all cards in the shop
     fn total_health(&self) -> u32 {
-        todo!()
+        self.cards[0].health + self.cards[1].health + self.cards[2].health
     }
 }
 
 /// A Card is a card stores a price, health, and damage.
 struct Card {
-    // TODO: Add fields to this struct
+    price: u32,
+    health: u32,
+    damage: u32
 }
 
 #[cfg(test)]
