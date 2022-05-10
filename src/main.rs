@@ -6,24 +6,24 @@ fn main() {
     // uncomment this code
     //
     let comic_book_shoppe = Shop {
-         cards: [
-             Card {
-                 price: 10,
-                 health: 10,
-                 damage: 10,
-             },
-             Card {
-                 price: 20,
-                 health: 20,
-                 damage: 20,
-             },
-             Card {
-                 price: 30,
-                 health: 30,
-                 damage: 30,
-             },
-         ],
-     };
+        cards: [
+            Card {
+                price: 10,
+                health: 10,
+                damage: 10,
+            },
+            Card {
+                price: 20,
+                health: 20,
+                damage: 20,
+            },
+            Card {
+                price: 30,
+                health: 30,
+                damage: 30,
+            },
+        ],
+    };
 
     println!("Welcome to The Comic Book Shoppe!");
     println!("We've got three cards for you to check out.");
@@ -69,7 +69,7 @@ fn main() {
 /// A Shop is a collection of 3 cards.
 struct Shop {
     // TOOD: Add the field to this struct
-    cards: [Card; 3]
+    cards: [Card; 3],
 }
 
 use std::cmp;
@@ -77,7 +77,10 @@ use std::cmp;
 impl Shop {
     /// Get the price of the most expensive card in the shop
     fn most_expensive(&self) -> u32 {
-       cmp::max(self.cards[0].price, cmp::max(self.cards[1].price, self.cards[2].price))
+        cmp::max(
+            self.cards[0].price,
+            cmp::max(self.cards[1].price, self.cards[2].price),
+        )
     }
 
     /// Get the total damage of all cards in the shop
@@ -95,7 +98,7 @@ impl Shop {
 struct Card {
     price: u32,
     health: u32,
-    damage: u32
+    damage: u32,
 }
 
 #[cfg(test)]
